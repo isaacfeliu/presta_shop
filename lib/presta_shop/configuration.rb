@@ -45,6 +45,7 @@ module PrestaShop
         def proxy=(user_proxy)
           return if user_proxy.nil? or user_proxy.empty?
           @proxy = user_proxy
+          RestClient.proxy = user_proxy
         end
 
         def headers=(user_headers)
