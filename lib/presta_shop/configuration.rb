@@ -4,6 +4,7 @@ module PrestaShop
         attr_accessor :shop_id
         attr_accessor :debug, :log
         attr_accessor :headers
+        attr_accessor :proxy
         
         alias_method :debug?, :debug
         
@@ -14,9 +15,12 @@ module PrestaShop
             @debug   = options[:debug] || false
             @log     = options[:logger] ||'stdout'
             @headers = options[:headers] || {}
+            @proxy = options[:proxy]
 
             self.api_url = @api_url
             self.headers = @headers
+            self.proxy = @proxy
+            self
         end
 
         def api_url=(url)
@@ -36,6 +40,11 @@ module PrestaShop
         def api_key=(user_api_key)
             return if user_api_key.nil? or user_api_key.empty?
             @api_key = user_api_key
+        end
+
+        def proxy=(user_proxy)
+          return if user_proxy.nil? or user_proxy.empty?
+          @proxy = user_proxy
         end
 
         def headers=(user_headers)

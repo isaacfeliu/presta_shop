@@ -10,12 +10,12 @@ module PrestaShop
     def self.query_permissions
         response = nil 
 
-        RestClient.proxy = ENV['https_proxy']
+
         response = RestClient::Request.new( :method => :get, 
                                             :url => configuration.api_url,
                                             :user => configuration.api_key,
-                                            :headers => configuration.headers).execute 
-        
+                                            :headers => configuration.headers).execute
+        response.proxy = configuration.proxy
         Headers.new(response).validate!
 
         xml_doc = Nokogiri::XML(response) do |config|
