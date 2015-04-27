@@ -13,6 +13,7 @@ module PrestaShop
                     customer_messages
                     customer_threads
                     customers
+                    customizations
                     deliveries
                     employees
                     groups
