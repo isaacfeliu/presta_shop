@@ -37,7 +37,7 @@ module PrestaShop
                     order_histories
                     order_invoices
                     order_payments
-                    order_slips
+                    order_slip
                     order_states
                     orders
                     price_ranges
