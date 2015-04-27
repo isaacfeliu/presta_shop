@@ -41,6 +41,7 @@ module PrestaShop
                     order_states
                     orders
                     price_ranges
+                    product_customization_fields
                     product_feature_values
                     product_features
                     product_option_values
