@@ -50,6 +50,7 @@ module PrestaShop
                     products
                     search
                     shop_groups
+                    shop_urls
                     shops
                     specific_price_rules
                     specific_prices
