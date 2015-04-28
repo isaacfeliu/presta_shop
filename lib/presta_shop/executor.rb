@@ -8,7 +8,8 @@ module PrestaShop
         response = RestClient::Request.execute  :method   => options[:method], 
                                                 :url       => url.to_s,
                                                 :user       => configuration.api_key,
-                                                :headers  => configuration.headers
+                                                :headers  => configuration.headers,
+                                                :verify_ssl => false
         
         # Validate if PrestaShop version is supported
         Headers.new(response).validate!
