@@ -9,7 +9,7 @@ module PrestaShop
                                                 :url       => url.to_s,
                                                 :user       => configuration.api_key,
                                                 :headers  => configuration.headers,
-                                                :verify_ssl => false
+                                                :verify_ssl => configuration.verify_ssl
         
         # Validate if PrestaShop version is supported
         Headers.new(response).validate!

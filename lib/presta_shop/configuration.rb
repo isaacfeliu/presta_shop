@@ -5,6 +5,7 @@ module PrestaShop
         attr_accessor :debug, :log
         attr_accessor :headers
         attr_accessor :proxy
+        attr_accessor :verify_ssl
         
         alias_method :debug?, :debug
         
@@ -16,10 +17,12 @@ module PrestaShop
             @log     = options[:logger] ||'stdout'
             @headers = options[:headers] || {}
             @proxy = options[:proxy]
+            @verify_ssl = options[:verify_ssl]
 
             self.api_url = @api_url
             self.headers = @headers
             self.proxy = @proxy
+            self.verify_ssl = @verify_ssl
             self
         end
 
@@ -46,6 +49,11 @@ module PrestaShop
           return if user_proxy.nil? or user_proxy.empty?
           @proxy = user_proxy
           RestClient.proxy = user_proxy
+        end
+
+        def verify_ssl=(user_verify_ssl)
+          return if user_verify_ssl.nil? or user_verify_ssl.empty?
+          @verify_ssl = user_verify_ssl
         end
 
         def headers=(user_headers)

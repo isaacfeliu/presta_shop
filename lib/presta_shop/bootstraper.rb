@@ -15,7 +15,8 @@ module PrestaShop
                                             :url => configuration.api_url,
                                             :user => configuration.api_key,
                                             :headers => configuration.headers,
-                                            :proxy => configuration.proxy).execute
+                                            :proxy => configuration.proxy,
+                                            :verify_ssl => configuration.verify_ssl).execute
         
         Headers.new(response).validate!
 
