@@ -52,7 +52,7 @@ module PrestaShop
         end
 
         def verify_ssl=(user_verify_ssl)
-          return if user_verify_ssl.nil? or user_verify_ssl.empty?
+          return if user_verify_ssl.nil?
           @verify_ssl = user_verify_ssl
         end
 
