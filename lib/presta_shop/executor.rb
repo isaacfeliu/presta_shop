@@ -10,7 +10,7 @@ module PrestaShop
                                                 :user       => configuration.api_key,
                                                 :headers  => configuration.headers,
                                                 :verify_ssl => configuration.verify_ssl
-        
+        puts response.inspect
         # Validate if PrestaShop version is supported
         Headers.new(response).validate!
 
