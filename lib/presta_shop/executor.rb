@@ -3,7 +3,6 @@ module PrestaShop
         # Check if url and query params are valid
         url = URLResolver.new configuration, options
         url.validate!
-        RestClient.create_log('stdout')
         # Make an request
         response = RestClient::Request.execute  :method   => options[:method], 
                                                 :url       => url.to_s,
