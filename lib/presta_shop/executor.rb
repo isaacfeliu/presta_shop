@@ -4,6 +4,11 @@ module PrestaShop
         url = URLResolver.new configuration, options
         url.validate!
         puts url
+        puts options[:method]
+        puts url.to_s
+        puts configuration.api_key
+        puts configuration.headers
+        puts configuration.verify_ssl
         # Make an request
         response = RestClient::Request.execute  :method   => options[:method], 
                                                 :url       => url.to_s,
