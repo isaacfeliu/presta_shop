@@ -60,7 +60,6 @@ module PrestaShop
         puts options
         options[:payload] = Converter.convert(options[:resource], options[:payload]) if options[:payload]
         response = execute options
-        puts response
         Parser.parse response, :id => true
     end
 
