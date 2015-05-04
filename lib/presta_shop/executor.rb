@@ -13,10 +13,13 @@ module PrestaShop
 
         case options[:method]
           when "post"
-            OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE unless configuration.verify_ssl
+            ssl.verify_mode = OpenSSL::SSL::VERIFY_NONE unless configuration.verify_ssl
             uri = URI.parse(url.to_s)
             first_arg = uri.scheme + "://" + configuration.api_key + "@" + uri.host + uri.path
             second_arg = CGI.parse(URI.parse(uri).query)["xml"][0]
+            puts "POST*******************"
+            puts first_arg
+            puts second_arg
             response = RestClient.post first_arg, second_arg
           else
             response = RestClient::Request.execute  :method   => options[:method],
