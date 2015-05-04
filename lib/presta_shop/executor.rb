@@ -12,7 +12,7 @@ module PrestaShop
         # Make an request
 
         case options[:method]
-          when "post"
+          when :post
             ssl.verify_mode = OpenSSL::SSL::VERIFY_NONE unless configuration.verify_ssl
             uri = URI.parse(url.to_s)
             first_arg = uri.scheme + "://" + configuration.api_key + "@" + uri.host + uri.path
