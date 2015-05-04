@@ -16,7 +16,7 @@ module PrestaShop
             #ssl.verify_mode = OpenSSL::SSL::VERIFY_NONE unless configuration.verify_ssl
             uri = URI.parse(url.to_s)
             first_arg = uri.scheme + "://" + configuration.api_key + "@" + uri.host + uri.path
-            second_arg = CGI.parse(URI.parse(uri).query)["xml"][0]
+            second_arg = CGI.parse(uri.query)["xml"][0]
             puts "POST*******************"
             puts first_arg
             puts second_arg
