@@ -46,9 +46,12 @@ module PrestaShop
         end
 
         def proxy=(user_proxy)
-          return if user_proxy.nil? or user_proxy.empty?
+          if user_proxy.nil? or user_proxy.empty?
+            RestClient.proxy = nil
+          else
+            RestClient.proxy = user_proxy
+          end
           @proxy = user_proxy
-          RestClient.proxy = user_proxy
         end
 
         def verify_ssl=(user_verify_ssl)
