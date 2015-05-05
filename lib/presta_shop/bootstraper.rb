@@ -16,7 +16,7 @@ module PrestaShop
                                             :user => configuration.api_key,
                                             :headers => configuration.headers,
                                             :proxy => configuration.proxy,
-                                            :verify_ssl => configuration.verify_ssl).execute
+                                            :verify_ssl => configuration.verify_ssl? ? OpenSSL::SSL::VERIFY_PEER : nil).execute
 
         Headers.new(response).validate!
 
