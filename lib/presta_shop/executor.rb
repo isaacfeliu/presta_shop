@@ -26,7 +26,7 @@ module PrestaShop
                                                     :url       => url.to_s,
                                                     :user       => configuration.api_key,
                                                     :headers  => configuration.headers,
-                                                    :verify_ssl => false
+                                                    :verify_ssl => OpenSSL::SSL::VERIFY_NONE
         end
 
         # response = RestClient::Request.execute  :method   => options[:method],
