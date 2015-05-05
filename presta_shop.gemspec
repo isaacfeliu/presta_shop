@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = PrestaShop::VERSION
   gem.license       = "MIT"
 
-  gem.add_dependency("rest-client", ">= 1.6.7")
+  #gem.add_dependency("rest-client", ">= 1.8.0")
   gem.add_dependency("nokogiri", ">= 1.5.9")
   gem.add_dependency("thor", ">= 0.14.4")
   gem.add_dependency("hashie", ">= 2.0.5")
